@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
 import java.util.Optional;
 
 @Slf4j //kullanıcıya uyarı verdirmek ıcın kullanıyoruz
@@ -33,6 +34,11 @@ public class HomeController {
     public String getIndex(Model model){
 
         Iterable<Entry> entries = entryRepository.findAll();
+        Iterable<Entry> todaysEntries = entryRepository.findByCreateDate(LocalDate.now());
+
+
+        model.addAttribute("todaysEntries", todaysEntries);
+
         model.addAttribute("entries", entries);
         return "entries/listEntries";
     }

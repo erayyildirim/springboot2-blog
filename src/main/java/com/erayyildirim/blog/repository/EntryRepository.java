@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.util.List;
 
 
@@ -34,6 +35,8 @@ public interface EntryRepository extends CrudRepository<Entry, Integer> {
 
     @Query("SELECT e FROM Entry e WHERE e.title LIKE %:str%")
     List<Entry> findByTitle(@Param("str") String str);
+
+    List<Entry> findByCreateDate(LocalDate date);
 
 
 }
