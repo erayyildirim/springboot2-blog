@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"> <!--th:object hata verdigi ıcın eklendı-->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+</head>
+<body>
+    <form method="POST" th:action="@{'/blog/' + ${entry.id} + '/delete'}">
+        <button class="btn btn-danger" type="submit">DELETE</button>
+    </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Body</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td th:text="${entry.title}"></td>
+                <td th:text="${entry.body}"></td>
+            </tr>
+
+        </tbody>
+
+
+    </table>
+</body>
+</html>
