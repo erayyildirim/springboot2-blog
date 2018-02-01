@@ -21,6 +21,16 @@
             <input class="form-control" type="text" th:field="*{writer}" id="writer">
         </div>
 
+        <div class="form-group">
+            <label for="categories"></label>
+            <select id="categories"
+                    th:field="*{categories}" multiple>
+                <option th:each="category : ${categories}"
+                        th:text="${category.name}"
+                        th:value="${category.id}"></option>
+            </select>
+        </div>
+
         <button class="btn btn-primary" type="submit">Create</button>
     </form>
     </body>

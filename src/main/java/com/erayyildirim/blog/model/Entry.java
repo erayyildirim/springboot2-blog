@@ -48,4 +48,9 @@ public class Entry {
     @OneToMany(cascade = CascadeType.ALL , orphanRemoval = false)
     @JoinColumn(name = "ENTRY_ID")
     List<Like> likes = new ArrayList<>();
+
+    @ManyToMany
+    private List<Category> categories;
+
+
 }

@@ -11,12 +11,18 @@
                 <thead>
                 <tr>
                     <th>Title</th>
+                    <th>Category</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="entry : ${entries}">
                     <td>
                         <a th:text="${entry.title}" th:href="@{'/blog/' + ${entry.id}}"></a>
+                    </td>
+                    <td>
+                        <th:block th:each="category : ${entry.categories}">
+                            <p th:text="${category.name}"></p>
+                        </th:block>
                     </td>
                 </tr>
                 </tbody>

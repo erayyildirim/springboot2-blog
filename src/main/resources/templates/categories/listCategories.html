@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<th:block layout:fragment="content">
+    <body>
+    <div class = "row">
+        <div class = "col">
+            <a th:href="@{/categories/new}" class="btn btn-outline-success">New Category</a>
+        </div>
+        <div class="col">
+            <a th:href="@{/categories/delete}" class="btn btn-outline-danger">Delete Category</a>
+        </div>
+
+    </div>
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="category : ${categories}">
+            <td th:text="${category.name}"></td>
+        </tr>
+        </tbody>
+    </table>
+    </body>
+</th:block>
+</html>

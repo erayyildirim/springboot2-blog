@@ -1,0 +1,9 @@
+2018-02-01 23:00:54 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ENTRY_CATEGORIES[*]"; expected "EXPLAIN, EXECUTE, {"; SQL statement:
+ENTRY_CATEGORIES [42001-196]
+2018-02-01 23:16:45 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CATEGORY_ENTRIES[*]"; expected "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT, {"; SQL statement:
+CATEGORY_ENTRIES [42001-196]
+2018-02-01 23:17:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ENTRY_CATEGORIES[*]"; expected "EXPLAIN, EXECUTE, {"; SQL statement:
+ENTRY_CATEGORIES [42001-196]

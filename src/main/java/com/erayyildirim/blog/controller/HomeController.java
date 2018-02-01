@@ -1,7 +1,9 @@
 package com.erayyildirim.blog.controller;
 
 
+import com.erayyildirim.blog.model.Category;
 import com.erayyildirim.blog.model.Entry;
+import com.erayyildirim.blog.repository.CategoryRepository;
 import com.erayyildirim.blog.repository.EntryRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +12,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.time.LocalDate;
@@ -28,7 +27,16 @@ public class HomeController {
     private EntryRepository entryRepository;
 
     @Autowired
+    private CategoryRepository categoryRepository;
+
+    @Autowired
     private ApplicationContext applicationContext;
+
+    @GetMapping("/login")
+    public String getLoginPage(){
+        return "login";
+    }
+
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String getIndex(Model model){
@@ -38,7 +46,6 @@ public class HomeController {
 
 
         model.addAttribute("todaysEntries", todaysEntries);
-
         model.addAttribute("entries", entries);
         return "entries/listEntries";
     }
@@ -47,6 +54,9 @@ public class HomeController {
     public String getEntryForm(Model model){
 
         model.addAttribute("entry",new Entry()); //entry formda kullanılıyor
+
+        Iterable<Category> categories = categoryRepository.findAll();
+        model.addAttribute("categories",categories);
 
         return "entries/newEntry";
     }
@@ -96,6 +106,8 @@ public class HomeController {
     public String getUpdateEntry(@PathVariable("id") Integer id, Model model){
 
         Optional<Entry> entryOptional =entryRepository.findById(id);
+        Iterable<Category> categories = categoryRepository.findAll();
+        model.addAttribute("categories",categories);
 
         if(!entryOptional.isPresent()){
             log.warn("Entry with {} id is not present", id); // id'nin gosterılecegı yer {} temsil edilir

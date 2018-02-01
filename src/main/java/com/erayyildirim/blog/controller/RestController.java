@@ -54,7 +54,7 @@ public class RestController {
         entryRepository.deleteEntryById(id);
         return ResponseEntity.noContent().build();
     }
-    //calısmıyor
+
     @GetMapping("/search")
     public ResponseEntity<List<Entry>> searchEntry(@RequestParam("title") String str){
 
