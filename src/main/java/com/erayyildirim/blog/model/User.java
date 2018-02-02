@@ -17,11 +17,6 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Created on January, 2018
- *
- * @author adilcan
- */
 @Entity
 @Getter
 @Setter

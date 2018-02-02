@@ -4,14 +4,14 @@
 <th:block layout:fragment="content">
     <body>
     <div class = "row">
-        <div class = "col">
+        <div class = "col-6">
             <a th:href="@{/categories/new}" class="btn btn-outline-success">New Category</a>
         </div>
-        <div class="col">
-            <a th:href="@{/categories/delete}" class="btn btn-outline-danger">Delete Category</a>
-        </div>
+
+
 
     </div>
+
 
 
     <table class="table">
@@ -22,7 +22,9 @@
         </thead>
         <tbody>
         <tr th:each="category : ${categories}">
-            <td th:text="${category.name}"></td>
+           <td>
+               <a th:text="${category.name}" th:href="@{'/categories/' + ${category.id}}"></a>
+           </td>
         </tr>
         </tbody>
     </table>

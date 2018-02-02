@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<th:block layout:fragment="content">
+
+    <body>
+    <form th:object="${category}" method="post" th:action="@{'/categories/' + ${category.id} + '/update'}">
+        <div class="form-group">
+            <label for="title">Name</label>
+            <input class="form-control" type="text" th:field="*{name}" th:value="*{name}" id="title">
+        </div>
+
+        <button class="btn btn-primary" type="submit">Update</button>
+    </form>
+    </body>
+</th:block>
+</html>
