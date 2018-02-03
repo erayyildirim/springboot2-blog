@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<th:block layout:fragment="content">
+    <body>
+
+
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Writer Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="writer : ${writers}">
+           <td th:text="${writer.getWriter()}"></td>
+        </tr>
+        </tbody>
+    </table>
+    </body>
+</th:block>
+</html>

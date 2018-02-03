@@ -12,6 +12,8 @@
                 <tr>
                     <th>Title</th>
                     <th>Category</th>
+                    <th>Wrtr Name</th>
+                    <th>Create Date</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -23,7 +25,10 @@
                         <th:block th:each="category : ${entry.categories}">
                             <p th:text="${category.name}"></p>
                         </th:block>
+
                     </td>
+                    <td th:text="${entry.getWriter()}"></td>
+                    <td th:text="${entry.getCreateDate()}"></td>
                 </tr>
                 </tbody>
             </table>
